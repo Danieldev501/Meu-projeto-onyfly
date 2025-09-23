@@ -9,7 +9,7 @@ export class Random implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'True Random Number Generator',
 		name: 'random',
-		icon: 'file:random.svg',
+		icon: 'file:icons/random.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Gera um número aleatório usando a API da Random.org',
