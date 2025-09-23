@@ -4,14 +4,14 @@ exports.Random = void 0;
 class Random {
     constructor() {
         this.description = {
-            displayName: 'Random Number',
+            displayName: 'True Random Number Generator',
             name: 'random',
             icon: 'file:random.svg',
             group: ['transform'],
             version: 1,
             description: 'Gera um número aleatório usando a API da Random.org',
             defaults: {
-                name: 'Random Number',
+                name: 'True Random Number Generator',
             },
             inputs: ['main'],
             outputs: ['main'],

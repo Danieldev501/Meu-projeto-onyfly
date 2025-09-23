@@ -66,13 +66,13 @@ export class Random implements INodeType {
 
 			} catch (error) {
 				if (this.continueOnFail()) {
-					returnData.push({
-						json: {
-							...items[i].json,
-							error: error.message,
-						},
-						pairedItem: { item: i }
-					});
+					const json = this.getInputData(i)[0].json;
+					if (error instanceof Error) {
+						json.error = error.message;
+					} else {
+						json.error = 'An unknown error occurred';
+					}
+					returnData.push({ json, pairedItem: { item: i } });
 					continue;
 				}
 				throw error;
