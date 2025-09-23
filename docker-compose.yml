@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:1.85.4
+    ports:
+      - '5678:5678'
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=n8n
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    volumes:
+      - ./n8n-data:/home/node/.n8n
+      - ./custom-nodes:/home/node/.n8n/custom  # Mapeia custom-nodes para o diretório de nodes personalizados
+    depends_on:
+      - postgres
+    restart: always
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=n8n
+      - POSTGRES_DB=n8n
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
+volumes:
+  n8n-data:
+  postgres-data:

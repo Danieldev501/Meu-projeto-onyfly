@@ -1,0 +1,33 @@
+{
+  "name": "n8n-nodes-random",
+  "version": "0.1.0",
+  "description": "Um node n8n para gerar números aleatórios usando a API da Random.org.",
+  "license": "MIT",
+  "author": "Seu Nome",
+  "main": "dist/Random.node.js",
+  "scripts": {
+    "build": "tsc && gulp build",
+    "dev": "tsc --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "overrides": {
+    "zod": "3.23.8"
+  },
+  "n8n": {
+    "n8n": {
+      "nodes": [
+        "dist/Random.node.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.42",
+
+    "gulp": "^4.0.2",
+    "n8n-core": "^1.85.4",
+    "n8n-workflow": "^1.85.4",
+    "typescript": "~4.8.4"
+  }
+}
