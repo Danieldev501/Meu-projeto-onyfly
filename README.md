@@ -73,4 +73,4 @@ Fiz os testes na mão mesmo, direto no n8n. Criei uns workflows, testei vários 
 ## Observação
 
 - O `docker-compose.yml` já tá configurado pra carregar o conector automaticamente.
-- Usei a IA Gemini como uma ajudante pra acelerar algumas partes do desenvolvimento e tirar umas dúvidas.
+- Usei a IA Gemini como uma ajudante para a configuração do ambiente com Docker.

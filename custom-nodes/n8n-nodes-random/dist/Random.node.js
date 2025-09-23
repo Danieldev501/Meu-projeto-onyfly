@@ -4,14 +4,14 @@ exports.Random = void 0;
 class Random {
     constructor() {
         this.description = {
-            displayName: 'True Random Number Generator',
+            displayName: 'Random',
             name: 'random',
             icon: 'file:icons/random.svg',
             group: ['transform'],
             version: 1,
             description: 'Gera um número aleatório usando a API da Random.org',
             defaults: {
-                name: 'True Random Number Generator',
+                name: 'Random',
             },
             inputs: ['main'],
             outputs: ['main'],
@@ -41,6 +41,9 @@ class Random {
         for (let i = 0; i < items.length; i++) {
             const min = this.getNodeParameter('min', i, 1);
             const max = this.getNodeParameter('max', i, 100);
+            if (min < 1 || max > 100) {
+                throw new Error('O valor mínimo não pode ser menor que 1 e o valor máximo não pode ser maior que 100.');
+            }
             const url = `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`;
             try {
                 const response = await this.helpers.httpRequest({

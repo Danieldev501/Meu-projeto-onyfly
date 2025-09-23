@@ -24,10 +24,12 @@
   },
   "devDependencies": {
     "@types/node": "^18.19.42",
-
     "gulp": "^4.0.2",
     "n8n-core": "^1.85.4",
     "n8n-workflow": "^1.85.4",
     "typescript": "~4.8.4"
+  },
+  "dependencies": {
+    "meu-projeto": "file:../.."
   }
 }
