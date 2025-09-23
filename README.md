@@ -122,12 +122,8 @@ Não criei testes automatizados dessa vez. Testei tudo na mão, criando workflow
 
 Algumas observações
 
-
-
-
-
 O docker-compose.yml já configura tudo pra carregar o node customizado no N8N automaticamente.
 
 
 
-Durante o desenvolvimento, mexi no package.json pra garantir que tudo rodasse liso com a versão 1.85.4 do N8N. Tive que resolver uns conflitos de dependências, mas agora tá de boa!
+Obs.: Durante o desenvolvimento, utilizei também a IA Gemini como suporte para resolver conflitos.
