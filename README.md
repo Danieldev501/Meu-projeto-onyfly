@@ -1,17 +1,17 @@
-# Desafio Onfly: Conector n8n Customizado - True Random Number Generator
+# Meu Projeto para o Desafio Onfly: Conector n8n de Número Aleatório
 
-Este repositório contém a implementação de um conector (node) customizado para a plataforma n8n, desenvolvido como parte do desafio técnico do processo seletivo da Onfly.
+E aí, pessoal da Onfly! 👋 Esse aqui é o meu projeto para o desafio técnico.
 
-O conector, chamado **Random**, se integra à API pública da [Random.org](http://random.org/) para gerar números verdadeiramente aleatórios com base em um intervalo definido pelo usuário.
+Criei um conector customizado pro n8n que gera números aleatórios de verdade, usando a API da [Random.org](http://random.org/). A ideia foi fazer algo funcional e fácil de usar.
 
-## Visão Geral do Conector
+## O que o conector faz?
 
-- **Nome do Node:** `Random`
+- **Nome:** `Random`
 - **Operação:** `True Random Number Generator`
-- **Funcionalidade:** Recebe dois parâmetros numéricos, **Min** e **Max**, e retorna um número inteiro aleatório gerado pela API da Random.org.
-- **Ícone:** Inclui um ícone SVG personalizado para facilitar a identificação na interface do n8n.
+- **Como funciona:** Você passa um número **Mínimo** e um **Máximo**, e ele te devolve um número aleatório nesse intervalo. Simples assim!
+- **Ícone:** Criei um ícone SVG pra ele ficar bonitinho e fácil de achar na lista de nodes.
 
-## Tecnologias Utilizadas
+## Tecnologias que usei
 
 - **Node.js:** v22 (LTS)
 - **TypeScript**
@@ -19,37 +19,25 @@ O conector, chamado **Random**, se integra à API pública da [Random.org](http:
 - **Docker e Docker Compose**
 - **PostgreSQL:** v16
 
-## Estrutura do Projeto
+## Como rodar o projeto
 
-```
-.
-├── custom-nodes/
-│   └── n8n-nodes-random/   # Código-fonte do conector customizado
-├── n8n-data/               # Volume para persistência de dados do n8n
-├── postgres-data/          # Volume para persistência de dados do PostgreSQL
-├── docker-compose.yml      # Orquestração dos serviços n8n e PostgreSQL
-└── README.md               # Este documento
-```
+Pra testar, é só seguir os passos abaixo.
 
-## Guia de Instalação e Execução
+### O que você precisa ter aí:
 
-Siga os passos abaixo para configurar e executar o ambiente localmente.
+- **Docker e Docker Compose:** Pra rodar o ambiente sem dor de cabeça.
+- **Node.js e npm:** Pra compilar o conector (usei a versão 22 do Node).
 
-### Pré-requisitos
-
-- **Docker e Docker Compose:** Essenciais para a execução do ambiente containerizado.
-- **Node.js e npm:** Necessários para a compilação do conector customizado. Recomenda-se a versão 22 (LTS) do Node.js.
-
-### 1. Clone o Repositório
+### Passo 1: Baixar o projeto
 
 ```bash
 git clone <URL_DO_REPOSITORIO>
 cd <NOME_DO_PROJETO>
 ```
 
-### 2. Compile o Conector Customizado
+### Passo 2: Compilar o conector
 
-Navegue até o diretório do conector, instale as dependências e compile o código TypeScript.
+O código do conector tá em TypeScript, então precisa compilar pra JavaScript.
 
 ```bash
 cd custom-nodes/n8n-nodes-random
@@ -57,37 +45,32 @@ npm install
 npm run build
 ```
 
-### 3. Inicie o Ambiente Docker
+### Passo 3: Ligar tudo com o Docker
 
-Retorne ao diretório raiz do projeto e utilize o Docker Compose para iniciar os serviços do n8n e do PostgreSQL.
+Agora é só voltar pra pasta principal e deixar o Docker fazer a mágica.
 
 ```bash
 cd ../..
 docker-compose up --build
 ```
+> **Dica:** O `--build` é mais pra primeira vez. Nas próximas, só `docker-compose up` já resolve.
 
-> **Nota:** O comando `--build` é necessário na primeira execução para construir a imagem do n8n com as configurações do projeto. Para execuções futuras, `docker-compose up` é suficiente.
+Depois que os containers subirem, o n8n vai estar rodando em **[http://localhost:5678](http://localhost:5678)**.
 
-Após a inicialização, a instância do n8n estará acessível em **[http://localhost:5678](http://localhost:5678)**.
+## Como usar no n8n
 
-## Como Utilizar o Conector no n8n
+1.  Abre o n8n no seu navegador.
+2.  Cria um workflow novo.
+3.  Clica no `+` pra adicionar um node.
+4.  Procura por "**Random**" e clica nele.
+5.  Preenche os campos **Min** e **Max**.
+6.  Executa e vê o resultado!
 
-1.  Acesse a interface do n8n em seu navegador.
-2.  Crie um novo workflow.
-3.  Clique no botão `+` para adicionar um novo nó.
-4.  Pesquise por "**Random**" e selecione o conector "**True Random Number Generator**".
-5.  No painel de configurações do nó, defina os valores para **Min** e **Max**.
-6.  Execute o nó para gerar e visualizar o número aleatório no output.
+## Sobre os testes
 
-## Testes
+Fiz os testes na mão mesmo, direto no n8n. Criei uns workflows, testei vários números, vi se a API da Random.org respondia certo e se o node tratava os dados direitinho.
 
-Os testes foram realizados de forma manual e funcional diretamente na interface do n8n. O processo consistiu em:
-- Criar workflows para validar a execução do conector.
-- Testar diferentes intervalos de valores para `Min` e `Max`.
-- Verificar se a resposta da API da Random.org era corretamente processada e retornada pelo nó.
-- Validar o tratamento de erros em caso de falha na comunicação com a API.
+## Observação
 
-## Observações Adicionais
-
-- O arquivo `docker-compose.yml` está configurado para montar o diretório `custom-nodes` no volume correspondente do container do n8n, garantindo que o conector seja carregado automaticamente na inicialização.
-- Durante o desenvolvimento, a IA Gemini foi utilizada como ferramenta de suporte para acelerar a resolução de dúvidas e a estruturação do código.
+- O `docker-compose.yml` já tá configurado pra carregar o conector automaticamente.
+- Usei a IA Gemini como uma ajudante pra acelerar algumas partes do desenvolvimento e tirar umas dúvidas.
