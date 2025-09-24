@@ -1,6 +1,6 @@
 # Meu Projeto para o Desafio Onfly: Conector n8n de Número Aleatório
 
- Esse aqui é o meu projeto para o desafio técnico.
+ Esse aqui é o meu projeto True Random Number Generator
 
 Criei um conector customizado pro n8n que gera números aleatórios de verdade, usando a API da [Random.org](http://random.org/).
 
