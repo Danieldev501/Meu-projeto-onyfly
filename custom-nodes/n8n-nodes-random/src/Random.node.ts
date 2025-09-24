@@ -7,14 +7,14 @@ import {
 
 export class Random implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Random',
+		displayName: 'True Random Number Generator',
 		name: 'random',
 		icon: 'file:icons/random.svg',
 		group: ['transform'],
 		version: 1,
-		description: 'True Random Number Generator',
+		description: 'Usa a API da Random.org para gerar um número aleatório real.',
 		defaults: {
-			name: 'Random',
+			name: 'True Random Number Generator',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
@@ -45,10 +45,6 @@ export class Random implements INodeType {
 		for (let i = 0; i < items.length; i++) {
 			const min = this.getNodeParameter('min', i, 1) as number;
 			const max = this.getNodeParameter('max', i, 100) as number;
-
-			if (min < 1 || max > 100) {
-				throw new Error('O valor mínimo não pode ser menor que 1 e o valor máximo não pode ser maior que 100.');
-			}
 
 			const url = `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`;
 

@@ -1,2 +1,4 @@
 node_modules/
 n8n-data/
+dist/
+custom-nodes/n8n-nodes-random/dist/
