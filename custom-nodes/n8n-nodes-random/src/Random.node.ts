@@ -12,7 +12,7 @@ export class Random implements INodeType {
 		icon: 'file:icons/random.svg',
 		group: ['transform'],
 		version: 1,
-		description: 'Gera um número aleatório usando a API da Random.org',
+		description: 'Gera um número aleatório.',
 		defaults: {
 			name: 'Random',
 		},
